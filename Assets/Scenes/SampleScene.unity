@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 73469897}
   - component: {fileID: 73469896}
+  - component: {fileID: 73469898}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1131474586}
   m_Follow: {fileID: 1131474586}
   m_Lens:
     FieldOfView: 60.000004
@@ -187,14 +188,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73469895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.004464641, y: 0.9647458, z: -0.26265287, w: -0.016096517}
-  m_LocalPosition: {x: 0.2871279, y: 5.7153025, z: 8.615088}
+  m_LocalRotation: {x: 0.00000004800098, y: 0.9310557, z: -0.36487713, w: 0.00000012248394}
+  m_LocalPosition: {x: -0.0000019304982, y: 7.4404182, z: 7.3372946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1106931169}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 42.8, y: 180, z: 0}
+--- !u!114 &73469898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73469895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ApplyAfter: 1
+  m_PreserveComposition: 1
 --- !u!1 &123852436
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,9 +241,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123852436}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 2
+  m_Drag: 0.75
+  m_AngularDrag: 0.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -293,9 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicle: {fileID: 1131474586}
-  speed: 15
+  speed: 50
   turnSpeed: 8
-  lerpSpeed: 0.5
+  lerpSpeed: 0.25
 --- !u!114 &123852443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,8 +572,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.004464641, y: 0.9647458, z: -0.26265287, w: -0.016096517}
-  m_LocalPosition: {x: 0.2871279, y: 5.7153025, z: 8.615088}
+  m_LocalRotation: {x: 0.00000004800098, y: 0.9310557, z: -0.36487713, w: 0.00000012248394}
+  m_LocalPosition: {x: -0.0000019304982, y: 7.4404182, z: 7.3372946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
