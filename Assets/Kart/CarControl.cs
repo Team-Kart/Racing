@@ -14,7 +14,6 @@ public class CarControl : MonoBehaviour
     [SerializeField] float lerpSpeed = .1f;
 
     Rigidbody rb;
-    InputSystem input;
 
     bool grounded;
 
@@ -26,14 +25,6 @@ public class CarControl : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        input = new InputSystem();
-
-        //input.Player.Jump.performed += OnJump;
-        input.Player.Enable();
-        input.Player.Movement.performed += OnMove;
-        input.Player.Movement.canceled += OnMove;
-        input.Player.Turning.performed += OnTurn;
-        input.Player.Turning.canceled += OnTurn;
     }
     private void FixedUpdate()
     {
@@ -41,16 +32,14 @@ public class CarControl : MonoBehaviour
         UpdateMovement();
     }
 
+    //orients the vehicle object based on the ground's normal direction, gotten from a raycast
+    //TODO eventually limit the amount that the kart can be rotated to simulate drifting and friction
     private void UpdateVehicleDirection()
     {
         Vector3 newRot = vehicle.rotation.eulerAngles;
 
-
-        
-
         //vertical movement
         RaycastHit hit;
-
 
         if (Physics.Raycast(vehicle.position, Vector3.down, out hit, transform.localScale.y / 2 +.1f))
         {
@@ -64,23 +53,25 @@ public class CarControl : MonoBehaviour
 
         //horizontal movement
         newRot.y += turnInput * turnSpeed;
-        //if (moveInput != 0)
-            
 
         vehicle.rotation = Quaternion.Lerp(vehicle.rotation, Quaternion.Euler(newRot), lerpSpeed*.5f);
     }
     private void UpdateMovement()
     {
+        //old movement, more rigid but precise
         /*Vector3 newVel = vehicle.forward * speed * moveInput;
         newVel.y = rb.velocity.y;
         rb.velocity = newVel;*/
 
+        //TODO:: smoother but needs further tweaking
         if (grounded)
             rb.AddForce(vehicle.forward * speed * moveInput, ForceMode.Force);
 
         vehicle.position = Vector3.Lerp(vehicle.position, transform.position, lerpSpeed);
     }
 
+
+    //Input handlers
     public void OnMove(InputAction.CallbackContext ctx)
     {
         if (ctx.canceled)
