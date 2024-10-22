@@ -7,13 +7,15 @@ using UnityEngine.Splines;
 [CreateAssetMenu(fileName = "Position Tracker", menuName = "ScriptableObjects/Create Position Tracker")]
 public class PositionTracker : ScriptableObject
 {
-    public List<Transform> karts { get; private set; } = new List<Transform>();
+    public List<KartTracker> karts { get; private set; } = new List<KartTracker>();
 
     public GameObject checkpointParent;
     public List<Transform> checkpoints { get; private set; }
 
     public void Initialize()
     {
+        karts = new List<KartTracker>();
+
         checkpoints = new List<Transform>();
         foreach (var checkpoint in checkpointParent.gameObject.GetComponentsInChildren<Transform>())
         {
@@ -21,5 +23,11 @@ public class PositionTracker : ScriptableObject
         }
         checkpoints.RemoveAt(0);
         Debug.Log("added " + checkpoints.Count);
+    }
+
+    public void AddKart(KartTracker kart)
+    {
+        Debug.Log("Added");
+        karts.Add(kart);
     }
 }

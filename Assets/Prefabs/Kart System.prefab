@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 1256393359347696529}
   - component: {fileID: 6863289495716360191}
   - component: {fileID: 3714634562424130911}
+  - component: {fileID: 7963008046751121994}
+  - component: {fileID: 3416982731487507618}
   m_Layer: 0
   m_Name: Player Kart Movement
   m_TagString: Untagged
@@ -214,9 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicle: {fileID: 104604504335605687}
-  speed: 50
+  speed: 9.3
   turnSpeed: 10
-  lerpSpeed: 0.25
+  lerpSpeed: 0.7
 --- !u!114 &1256393359347696529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +331,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394042054159658007}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7963008046751121994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394042054159658007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bd3865dbd5c4c4a84cf50e6badf85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLapChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPositionChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3416982731487507618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394042054159658007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b615fc37b6e62114891b03fb722f0e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextCheckpointIndex: 0
+  prevCheckpointIndex: 0
+  nextCheckpoint: {fileID: 0}
+  prevCheckpoint: {fileID: 0}
+  lap: 0
+  racePosition: 0
 --- !u!1 &2217844251104915163
 GameObject:
   m_ObjectHideFlags: 0
