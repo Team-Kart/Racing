@@ -59,13 +59,13 @@ public class CarControl : MonoBehaviour
     private void UpdateMovement()
     {
         //old movement, more rigid but precise
-        /*Vector3 newVel = vehicle.forward * speed * moveInput;
+        Vector3 newVel = vehicle.forward * speed * moveInput;
         newVel.y = rb.velocity.y;
-        rb.velocity = newVel;*/
+        rb.velocity = newVel;
 
         //TODO:: smoother but needs further tweaking
-        if (grounded)
-            rb.AddForce(vehicle.forward * speed * moveInput, ForceMode.Force);
+        /*if (grounded)
+            rb.AddForce(vehicle.forward * speed * moveInput, ForceMode.Force);*/
 
         vehicle.position = Vector3.Lerp(vehicle.position, transform.position, lerpSpeed);
     }
