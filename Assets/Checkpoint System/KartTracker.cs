@@ -20,9 +20,6 @@ public class KartTracker : NetworkBehaviour
         {
             OnLapChange += FindObjectOfType<KartUI>().SetLapText;
             OnPositionChange += FindObjectOfType<KartUI>().SetPosText;
-
-            data.lap.OnValueChanged += UpdateLapClientRpc;
-            data.racePosition.OnValueChanged += UpdatePositionClientRpc;
         }
 
 
@@ -42,6 +39,7 @@ public class KartTracker : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner) return;
         CalculateCheckpointRpc(transform.position);
     }
 
@@ -53,12 +51,12 @@ public class KartTracker : NetworkBehaviour
         if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < 2f)
         {
             IncrementCheckpointRpc();
-            Debug.Log(data.nextCheckpointIndex.Value);
+            //Debug.Log(data.nextCheckpointIndex.Value);
         }
         else if (Vector3.Dot(prevdiff, data.prevCheckpoint.forward) < 0)
         {
             DecrementCheckpointRpc();
-            Debug.Log(data.nextCheckpointIndex.Value);
+            //Debug.Log(data.nextCheckpointIndex.Value);
         }
 
         CalculatePositionValueRpc(position, data.nextCheckpoint.position);
@@ -74,9 +72,11 @@ public class KartTracker : NetworkBehaviour
 
     public void SetPosition(int index)
     {
+        if (!IsServer) return;
         Debug.Log(index);
         data.racePosition.Value = index + 1;
-        //OnPositionChange.Invoke(data.racePosition.Value);
+
+        UpdatePositionClientRpc(data.racePosition.Value);
     }
 
     [Rpc(SendTo.Server)]
@@ -121,28 +121,34 @@ public class KartTracker : NetworkBehaviour
     }
     void IncreaseLap()
     {
+        if (!IsServer) return;
+
         data.lap.Value++;
         Debug.Log("Lap: " + data.lap.Value);
-        //OnLapChange.Invoke(data.lap.Value);
+        UpdateLapClientRpc(data.lap.Value);
     }
     void DecreaseLap()
     {
+        if (!IsServer) return;
+
         data.lap.Value--;
         if (data.lap.Value < 1)
             data.lap.Value = 0;
         Debug.Log("Lap: " + data.lap.Value);
 
-        //OnLapChange.Invoke(data.lap.Value);
+        UpdateLapClientRpc(data.lap.Value);
     }
 
     [Rpc(SendTo.Owner)]
-    void UpdateLapClientRpc(int prev, int curr)
+    void UpdateLapClientRpc(int curr)
     {
+        Debug.Log("lap change");
         OnLapChange.Invoke(curr);
     }
     [Rpc(SendTo.Owner)]
-    void UpdatePositionClientRpc(int prev, int curr)
+    void UpdatePositionClientRpc(int curr)
     {
+        Debug.Log("position change");
         OnPositionChange.Invoke(curr);
     }
 }
