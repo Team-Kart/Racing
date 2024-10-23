@@ -134,7 +134,7 @@ public class KartTracker : NetworkBehaviour
         data.lap.Value--;
         if (data.lap.Value < 1)
             data.lap.Value = 0;
-        Debug.Log("Lap: " + data.lap.Value);
+        //Debug.Log("Lap: " + data.lap.Value);
 
         UpdateLapClientRpc(data.lap.Value);
     }
@@ -142,13 +142,13 @@ public class KartTracker : NetworkBehaviour
     [Rpc(SendTo.Owner)]
     void UpdateLapClientRpc(int curr)
     {
-        Debug.Log("lap change");
+        //Debug.Log("lap change");
         OnLapChange.Invoke(curr);
     }
     [Rpc(SendTo.Owner)]
     void UpdatePositionClientRpc(int curr)
     {
-        Debug.Log("position change");
+        //Debug.Log("position change");
         OnPositionChange.Invoke(curr);
     }
 }

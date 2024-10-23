@@ -243,6 +243,8 @@ MonoBehaviour:
   speed: 9.3
   turnSpeed: 10
   lerpSpeed: 0.7
+  vcam: {fileID: 3492570514832437970}
+  listener: {fileID: 6066345348779200592}
 --- !u!114 &1256393359347696529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4716434954880918466}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.6311567e-10, y: 0.99988264, z: -0.015320201, w: -0.000000017172411}
+  m_LocalRotation: {x: 2.707753e-10, y: 0.99988264, z: -0.015320204, w: 0.000000017672319}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1357,6 +1359,7 @@ GameObject:
   - component: {fileID: 6909432648149145350}
   - component: {fileID: 4910340386751379254}
   - component: {fileID: 5612974771453768467}
+  - component: {fileID: 6066345348779200592}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -1464,6 +1467,14 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!81 &6066345348779200592
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741112538887197163}
+  m_Enabled: 0
 --- !u!1 &7796154099822395578
 GameObject:
   m_ObjectHideFlags: 0

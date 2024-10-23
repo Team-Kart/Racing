@@ -34,7 +34,7 @@ public class CheckpointSystem : NetworkBehaviour
                 tracker.karts[curr].SetPosition(curr);
 
                 tracker.karts[next] = tempKart;
-                tracker.karts[next].SetPosition(next);
+                tracker.karts[next].SetPosition(next); 
 
                 Debug.Log("Swapped");
             }

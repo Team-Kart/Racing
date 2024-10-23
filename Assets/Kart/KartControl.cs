@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using Unity.Netcode;
 using Unity.VisualScripting;
@@ -14,6 +15,9 @@ public class KartControl : NetworkBehaviour
     [SerializeField] float turnSpeed = 1;
     [SerializeField] float lerpSpeed = .1f;
 
+    [SerializeField] CinemachineFreeLook vcam;
+    [SerializeField] AudioListener listener;
+
     Rigidbody rb;
 
     bool grounded;
@@ -23,9 +27,19 @@ public class KartControl : NetworkBehaviour
     float turnInput;
 
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
-        rb = GetComponent<Rigidbody>();
+        if (IsOwner)
+        {
+            listener.enabled = true;
+            rb = GetComponent<Rigidbody>();
+
+            vcam.Priority = 1;
+        }
+        else
+        {
+            vcam.Priority = 0;
+        }
     }
     private void FixedUpdate()
     {
