@@ -5,7 +5,7 @@ using UnityEngine.Splines;
 
 
 [CreateAssetMenu(fileName = "Position Tracker", menuName = "ScriptableObjects/Create Position Tracker")]
-public class PositionTracker : ScriptableObject
+public class PositionTrackerSO : ScriptableObject
 {
     public List<KartTracker> karts { get; private set; } = new List<KartTracker>();
 

@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 3714634562424130911}
   - component: {fileID: 7963008046751121994}
   - component: {fileID: 3416982731487507618}
+  - component: {fileID: 789625495604229805}
   m_Layer: 0
   m_Name: Player Kart Movement
   m_TagString: Untagged
@@ -323,7 +324,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 4910340386751379254}
 --- !u!23 &6863289495716360191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -386,12 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bd3865dbd5c4c4a84cf50e6badf85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnLapChange:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPositionChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3416982731487507618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,12 +399,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b615fc37b6e62114891b03fb722f0e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpointIndex: 0
-  prevCheckpointIndex: 0
+  nextCheckpointIndex:
+    m_InternalValue: 0
+  prevCheckpointIndex:
+    m_InternalValue: 0
   nextCheckpoint: {fileID: 0}
   prevCheckpoint: {fileID: 0}
-  lap: 0
-  racePosition: 0
+  lap:
+    m_InternalValue: 0
+  racePosition:
+    m_InternalValue: 0
+  tracker: {fileID: 11400000, guid: 963b09ac04aea93498a007d87f08e826, type: 2}
+--- !u!114 &789625495604229805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394042054159658007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 0
+  SyncRotAngleY: 0
+  SyncRotAngleZ: 0
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1966615947941727543
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4604420494977373319}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000011827985, y: 0.9974842, z: -0.07088903, w: -0.000000016643238}
+  m_LocalRotation: {x: -8.5652435e-10, y: 0.9974842, z: -0.070889026, w: -0.000000012052213}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -724,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4716434954880918466}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.6865724e-10, y: 0.99988264, z: -0.015320202, w: -0.000000017534083}
+  m_LocalRotation: {x: -2.6311567e-10, y: 0.99988264, z: -0.015320201, w: -0.000000017172411}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -803,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749268534061330650}
   serializedVersion: 2
-  m_LocalRotation: {x: -1.13211995e-10, y: 0.9986137, z: -0.052637216, w: -0.000000002147816}
+  m_LocalRotation: {x: 1.13211995e-10, y: 0.9986137, z: -0.052637216, w: 0.000000002147816}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1324,7 +1355,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6909432648149145350}
-  - component: {fileID: 601163113295885825}
   - component: {fileID: 4910340386751379254}
   - component: {fileID: 5612974771453768467}
   m_Layer: 0
@@ -1342,21 +1372,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741112538887197163}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.26424e-10, y: 0.9986137, z: -0.05263722, w: -0.000000004295632}
+  m_LocalRotation: {x: 2.26424e-10, y: 0.9986137, z: -0.05263722, w: 0.000000004295632}
   m_LocalPosition: {x: 0, y: 1.4319016, z: 6.882988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5742317979588893171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &601163113295885825
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741112538887197163}
-  m_Enabled: 1
 --- !u!20 &4910340386751379254
 Camera:
   m_ObjectHideFlags: 0
@@ -1424,7 +1446,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1537,6 +1559,7 @@ GameObject:
   - component: {fileID: 1365540549573676355}
   - component: {fileID: 854880030428556272}
   - component: {fileID: 3729128972724618532}
+  - component: {fileID: 5457153007811373536}
   m_Layer: 0
   m_Name: Vehicle Object
   m_TagString: Untagged
@@ -1633,3 +1656,34 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5457153007811373536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236605624526452197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
