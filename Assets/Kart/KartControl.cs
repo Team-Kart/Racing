@@ -1,4 +1,5 @@
 using System;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -6,7 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
 using UnityEngine.InputSystem.HID;
 
-public class CarControl : MonoBehaviour
+public class KartControl : NetworkBehaviour
 {
     [SerializeField] Transform vehicle;
     [SerializeField] float speed = 50;
