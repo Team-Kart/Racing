@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class ItemBox : MonoBehaviour
 {
 
     // Start is called before the first frame update
