@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class ItemBox : MonoBehaviour
+public class ItemBox : NetworkBehaviour
 {
     // Item types
     public enum ItemType
@@ -28,7 +29,7 @@ public class ItemBox : MonoBehaviour
     // Award item when item box is hit
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Kart"))
         {
             // Get random item
             ItemType randomItem = GetItem();

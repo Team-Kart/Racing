@@ -13,8 +13,6 @@ public class KartTracker : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkSpawn();
-
         data = GetComponent<KartData>();
         if (IsOwner)
         {
@@ -34,7 +32,7 @@ public class KartTracker : NetworkBehaviour
             data.prevCheckpoint = data.tracker.checkpoints[data.prevCheckpointIndex.Value];
 
             data.tracker.AddKart(this);
-        }        
+        }
     }
 
     private void FixedUpdate()
@@ -48,7 +46,7 @@ public class KartTracker : NetworkBehaviour
     {
         Vector3 nextdiff = (position - data.nextCheckpoint.position).normalized;
         Vector3 prevdiff = (position - data.prevCheckpoint.position).normalized;
-        if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < 2f)
+        if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < data.nextCheckpoint.localScale.x)
         {
             IncrementCheckpointRpc();
             //Debug.Log(data.nextCheckpointIndex.Value);

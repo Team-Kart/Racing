@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 347404810626478717}
   - component: {fileID: 8067073919070718997}
+  - component: {fileID: 231814016774847616}
   m_Layer: 0
   m_Name: Kart System
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +57,19 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &231814016774847616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372571023619085373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2a6d85ca9307a41b965daacdf46f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: {fileID: 11400000, guid: 963b09ac04aea93498a007d87f08e826, type: 2}
 --- !u!1 &601649232051881610
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +81,7 @@ GameObject:
   - component: {fileID: 442005707388049331}
   - component: {fileID: 1906104009376440365}
   - component: {fileID: 5434893223459646086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +171,8 @@ GameObject:
   - component: {fileID: 7963008046751121994}
   - component: {fileID: 3416982731487507618}
   - component: {fileID: 789625495604229805}
-  m_Layer: 0
+  - component: {fileID: 1066396654279179459}
+  m_Layer: 3
   m_Name: Player Kart Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +337,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 93115e50-f40e-4e1b-95f2-ec7ad436347a
     m_ActionName: Player/ResetCamera[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1066396654279179459}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: UseHeldItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: db712f75-5f37-4d58-ba0d-92256d4c3228
+    m_ActionName: Player/UseItem[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -443,6 +474,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &1066396654279179459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394042054159658007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea4ae1737f59df4bbd26fa2e2889465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1966615947941727543
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +624,7 @@ GameObject:
   - component: {fileID: 3859322435530036670}
   - component: {fileID: 2267901977273624343}
   - component: {fileID: 5837932449695278170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +722,7 @@ Transform:
   m_GameObject: {fileID: 4604420494977373319}
   serializedVersion: 2
   m_LocalRotation: {x: -8.5652435e-10, y: 0.9974842, z: -0.070889026, w: -0.000000012052213}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -757,7 +800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4716434954880918466}
   serializedVersion: 2
-  m_LocalRotation: {x: 2.707753e-10, y: 0.99988264, z: -0.015320204, w: 0.000000017672319}
+  m_LocalRotation: {x: 0.015320203, y: -0.000000017489217, z: 2.6796984e-10, w: 0.99988264}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -836,7 +879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749268534061330650}
   serializedVersion: 2
-  m_LocalRotation: {x: 1.13211995e-10, y: 0.9986137, z: -0.052637216, w: 0.000000002147816}
+  m_LocalRotation: {x: 0.052637216, y: 0.000000002147816, z: -1.13211995e-10, w: 0.9986137}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1045,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 7031244649598005285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4319016, z: 6.882988}
+  m_LocalPosition: {x: 0, y: 1.4319016, z: -7.117012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1375,8 +1418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741112538887197163}
   serializedVersion: 2
-  m_LocalRotation: {x: 2.26424e-10, y: 0.9986137, z: -0.05263722, w: 0.000000004295632}
-  m_LocalPosition: {x: 0, y: 1.4319016, z: 6.882988}
+  m_LocalRotation: {x: 0.05263722, y: 0.000000004295632, z: -2.26424e-10, w: 0.9986137}
+  m_LocalPosition: {x: 0, y: 1.4319016, z: -7.117012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1486,7 +1529,7 @@ GameObject:
   - component: {fileID: 4154918964037896225}
   - component: {fileID: 6508863577572339792}
   - component: {fileID: 5229317923108048770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,9 +1614,9 @@ GameObject:
   - component: {fileID: 854880030428556272}
   - component: {fileID: 3729128972724618532}
   - component: {fileID: 5457153007811373536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vehicle Object
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8236605624526452197}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6459999, z: 0}
   m_LocalScale: {x: 0.8328003, y: 0.74979746, z: 1.6321715}
   m_ConstrainProportionsScale: 0
@@ -1595,7 +1638,7 @@ Transform:
   - {fileID: 442005707388049331}
   - {fileID: 4154918964037896225}
   m_Father: {fileID: 347404810626478717}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1365540549573676355
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1663,7 +1706,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
