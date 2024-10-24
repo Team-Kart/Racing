@@ -20,6 +20,8 @@ public class ItemManager : NetworkBehaviour
         
     }
 
+    //public void AddHeldItem(Item item); 
+
     public void UseHeldItem(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && IsOwner)

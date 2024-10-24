@@ -10,7 +10,7 @@ public class KartTracker : NetworkBehaviour
 
 
     KartData data;
-
+    
     public override void OnNetworkSpawn()
     {
         data = GetComponent<KartData>();

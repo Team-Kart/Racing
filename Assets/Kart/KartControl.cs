@@ -50,15 +50,6 @@ public class KartControl : NetworkBehaviour
         UpdateMovement(moveInput);
         UpdateVehicleDirection(turnInput);
     }
-
-    
-    [Rpc(SendTo.Server)]
-    private void HandleMovementRpc(float move, float turn)
-    {
-        UpdateMovement(move);
-        UpdateVehicleDirection(turn);
-    }
-
     private void UpdateMovement(float move)
     {
         //old movement, more rigid but precise
