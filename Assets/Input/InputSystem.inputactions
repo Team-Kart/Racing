@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "UseItem",
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "b2a471bd-cfb7-440a-b61b-1291f0564cca",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ResetCamera",
                     "type": "Button",
-                    "id": "ddbfee34-454b-498c-99e3-72d7225b25f6",
+                    "id": "93115e50-f40e-4e1b-95f2-ec7ad436347a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -146,12 +155,45 @@
                 },
                 {
                     "name": "",
-                    "id": "e70143a7-5b91-4dcc-a2e1-070b79031c2b",
-                    "path": "<Keyboard>/e",
+                    "id": "d4af15d2-c8d4-4db3-bc26-45d707cee9c0",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseItem",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4376c9e-3d7f-4681-9639-9112d6b75939",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0.5,y=-0.5)",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b00bbaa3-70ac-4ea2-b6a4-33fa183e6dde",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2cc3a59-1e7c-4229-83f5-411737f20e94",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

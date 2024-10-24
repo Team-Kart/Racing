@@ -46,9 +46,18 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""UseItem"",
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""b2a471bd-cfb7-440a-b61b-1291f0564cca"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ResetCamera"",
                     ""type"": ""Button"",
-                    ""id"": ""ddbfee34-454b-498c-99e3-72d7225b25f6"",
+                    ""id"": ""93115e50-f40e-4e1b-95f2-ec7ad436347a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -168,12 +177,45 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e70143a7-5b91-4dcc-a2e1-070b79031c2b"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""d4af15d2-c8d4-4db3-bc26-45d707cee9c0"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""UseItem"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4376c9e-3d7f-4681-9639-9112d6b75939"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""ScaleVector2(x=0.5,y=-0.5)"",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b00bbaa3-70ac-4ea2-b6a4-33fa183e6dde"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2cc3a59-1e7c-4229-83f5-411737f20e94"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -186,7 +228,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Turning = m_Player.FindAction("Turning", throwIfNotFound: true);
-        m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_ResetCamera = m_Player.FindAction("ResetCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -250,14 +293,16 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Turning;
-    private readonly InputAction m_Player_UseItem;
+    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_ResetCamera;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
         public PlayerActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Turning => m_Wrapper.m_Player_Turning;
-        public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @ResetCamera => m_Wrapper.m_Player_ResetCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -273,9 +318,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Turning.started += instance.OnTurning;
             @Turning.performed += instance.OnTurning;
             @Turning.canceled += instance.OnTurning;
-            @UseItem.started += instance.OnUseItem;
-            @UseItem.performed += instance.OnUseItem;
-            @UseItem.canceled += instance.OnUseItem;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @ResetCamera.started += instance.OnResetCamera;
+            @ResetCamera.performed += instance.OnResetCamera;
+            @ResetCamera.canceled += instance.OnResetCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -286,9 +334,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Turning.started -= instance.OnTurning;
             @Turning.performed -= instance.OnTurning;
             @Turning.canceled -= instance.OnTurning;
-            @UseItem.started -= instance.OnUseItem;
-            @UseItem.performed -= instance.OnUseItem;
-            @UseItem.canceled -= instance.OnUseItem;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @ResetCamera.started -= instance.OnResetCamera;
+            @ResetCamera.performed -= instance.OnResetCamera;
+            @ResetCamera.canceled -= instance.OnResetCamera;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -310,6 +361,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnTurning(InputAction.CallbackContext context);
-        void OnUseItem(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnResetCamera(InputAction.CallbackContext context);
     }
 }
