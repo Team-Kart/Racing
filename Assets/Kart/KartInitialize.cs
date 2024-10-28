@@ -12,5 +12,6 @@ public class KartInitialize : NetworkBehaviour
         transform.position = tracker.checkpoints[0].position;
         transform.rotation = tracker.checkpoints[0].rotation;
         transform.position -= transform.forward * 2f;
+        transform.position += Vector3.up;
     }
 }

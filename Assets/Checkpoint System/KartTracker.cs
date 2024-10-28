@@ -46,7 +46,7 @@ public class KartTracker : NetworkBehaviour
     {
         Vector3 nextdiff = (position - data.nextCheckpoint.position).normalized;
         Vector3 prevdiff = (position - data.prevCheckpoint.position).normalized;
-        if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < data.nextCheckpoint.localScale.x)
+        if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < data.nextCheckpoint.localScale.x / 2f)
         {
             IncrementCheckpointRpc();
             //Debug.Log(data.nextCheckpointIndex.Value);
