@@ -1,33 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ItemManager : NetworkBehaviour
 {
-    //Reference to held Item
+    // Item prefabs
+    [SerializeField] GameObject banana;
+    [SerializeField] GameObject shell;
+    [SerializeField] GameObject mushroom;
+    [SerializeField] GameObject coin;
 
-    // Start is called before the first frame update
-    void Start()
+
+    // Reference to held Item
+    ItemBox.ItemType itemHeld;
+    bool hasItem = false;
+
+    // Set item acquired
+    public void SetItem(ItemBox.ItemType item)
     {
-        
+        itemHeld = item;
+        hasItem = true;
+        Debug.Log("Item set: " + item);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //public void AddHeldItem(Item item); 
-
+    // Use item currently held
     public void UseHeldItem(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && IsOwner)
+        if (ctx.performed && IsOwner && hasItem)
         {
-            Debug.Log("use item");
+            hasItem = false;
+            SpawnItem(itemHeld);
+            Debug.Log("Used item" + itemHeld);
+
         }
-        
+        else
+        {
+            Debug.Log("No item to use!");
+        }
+
+    }
+
+    // Spawn item prefab
+    void SpawnItem(ItemBox.ItemType itemHeld)
+    {
+        GameObject itemPrefab = null;
+
+        switch (itemHeld)
+        {
+            case ItemBox.ItemType.Banana:
+                itemPrefab = banana;
+                break;
+            case ItemBox.ItemType.Shell:
+                itemPrefab = shell;
+                break;
+            case ItemBox.ItemType.Coin:
+                itemPrefab = coin;
+                break;
+            case ItemBox.ItemType.Mushroom:
+                itemPrefab = mushroom;
+                break;
+        }
+        if (itemPrefab != null)
+        {
+            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            Debug.Log("Spawned Item: " + itemHeld);
+        }
     }
 }
