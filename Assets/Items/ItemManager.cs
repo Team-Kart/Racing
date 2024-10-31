@@ -15,7 +15,6 @@ public class ItemManager : NetworkBehaviour
     ItemBox.ItemType itemHeld;
     bool hasItem = false;
 
-
     // Set item acquired
     public void SetItem(ItemBox.ItemType item)
     {
@@ -31,7 +30,7 @@ public class ItemManager : NetworkBehaviour
         {
             hasItem = false;
             //SpawnItem(itemHeld);
-            ItemEffect(itemHeld);
+            ItemEffectRpc(itemHeld);
             Debug.Log("Used item" + itemHeld);
 
         }
@@ -43,7 +42,10 @@ public class ItemManager : NetworkBehaviour
     }
 
     // Item effects
-    void ItemEffect(ItemBox.ItemType itemHeld)
+
+
+    [Rpc (SendTo.Server)]
+    void ItemEffectRpc(ItemBox.ItemType itemHeld)
     {
         GameObject itemPrefab = null;
 
@@ -64,7 +66,12 @@ public class ItemManager : NetworkBehaviour
         }
         if (itemPrefab != null)
         {
-            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            var instance = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            var instanceNetworkObject = instance.GetComponent<NetworkObject>();
+
+            if (IsServer)
+                instanceNetworkObject.Spawn();
+
             Debug.Log("Spawned Item: " + itemHeld);
         }
     }

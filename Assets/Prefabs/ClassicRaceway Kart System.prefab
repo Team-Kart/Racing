@@ -489,6 +489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea4ae1737f59df4bbd26fa2e2889465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  banana: {fileID: 2191461779084995708, guid: a5a867cdc2b2f474c87f6d5d7fbc1990, type: 3}
+  shell: {fileID: 1409235662166135200, guid: 28b97761792561f4ebd5fae20656d838, type: 3}
+  mushroom: {fileID: 7172801718218126368, guid: 09b7f5f90d01bd8488d56746dc1077dd, type: 3}
+  coin: {fileID: 7978566436794689733, guid: c3a7e91a4ee46ba4fae3fb0d29f2585d, type: 3}
 --- !u!1 &1966615947941727543
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749268534061330650}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0014285757, y: 0.000000017206364, z: 2.4580622e-11, w: 0.999999}
+  m_LocalRotation: {x: -0.0014285558, y: -0.00000001720636, z: -2.4580275e-11, w: 0.999999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1421,7 +1425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741112538887197163}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0014285857, y: 0.000000034412725, z: 4.916158e-11, w: 0.999999}
+  m_LocalRotation: {x: -0.001428546, y: -0.000000034412725, z: -4.9160214e-11, w: 0.999999}
   m_LocalPosition: {x: 0, y: 1.4319016, z: -7.117012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

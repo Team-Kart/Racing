@@ -16,7 +16,7 @@ public class ItemBox : NetworkBehaviour
     // Set item when item box is hit
     private void OnTriggerEnter(Collider other)
     {
-        if (!IsServer) return;
+        //if (!IsServer) return;
         KartData data = other.GetComponent<KartData>();
         if (data == null)
         {
@@ -43,13 +43,13 @@ public class ItemBox : NetworkBehaviour
         //return items[random];*/
         switch (position)
         {
-            case 0:
-                return ItemType.Coin;
             case 1:
-                return ItemType.Banana;
+                return ItemType.Coin;
             case 2:
-                return ItemType.Shell;
+                return ItemType.Banana;
             case 3:
+                return ItemType.Shell;
+            case 4:
                 return ItemType.Mushroom;
             default:
                 return items[Random.Range(0, items.Count)];
