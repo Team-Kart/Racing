@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 347404810626478717}
   - component: {fileID: 8067073919070718997}
-  - component: {fileID: 231814016774847616}
   m_Layer: 0
   m_Name: ClassicRaceway Kart System
-  m_TagString: Kart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,8 +30,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 104604504335605687}
   - {fileID: 1894622561341103546}
+  - {fileID: 104604504335605687}
   - {fileID: 5742317979588893171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,19 +56,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &231814016774847616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372571023619085373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2a6d85ca9307a41b965daacdf46f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tracker: {fileID: 11400000, guid: 963b09ac04aea93498a007d87f08e826, type: 2}
 --- !u!1 &601649232051881610
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +160,7 @@ GameObject:
   - component: {fileID: 1066396654279179459}
   m_Layer: 3
   m_Name: Player Kart Movement
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +244,7 @@ MonoBehaviour:
   speed: 4
   turnSpeed: 10
   lerpSpeed: 0.7
+  rotLerpSpeed: 0.1
   vcam: {fileID: 3492570514832437970}
   listener: {fileID: 6066345348779200592}
 --- !u!114 &1256393359347696529
@@ -353,6 +340,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: db712f75-5f37-4d58-ba0d-92256d4c3228
     m_ActionName: Player/UseItem[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5868333097479069734}
+        m_TargetAssemblyTypeName: KartControl, Assembly-CSharp
+        m_MethodName: OnStartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d4a9e4e3-fc2d-4213-9d01-22ad187f321f
+    m_ActionName: Player/Start[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -879,7 +882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749268534061330650}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0014285558, y: -0.00000001720636, z: -2.4580275e-11, w: 0.999999}
+  m_LocalRotation: {x: -0.0014285757, y: 0.000000017206364, z: 2.4580622e-11, w: 0.999999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1143,7 +1146,7 @@ MonoBehaviour:
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
+    m_InputAxisValue: 1
     m_InvertInput: 0
     m_MinValue: 0
     m_MaxValue: 1
@@ -1418,7 +1421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741112538887197163}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.001428546, y: -0.000000034412725, z: -4.9160214e-11, w: 0.999999}
+  m_LocalRotation: {x: -0.0014285857, y: 0.000000034412725, z: 4.916158e-11, w: 0.999999}
   m_LocalPosition: {x: 0, y: 1.4319016, z: -7.117012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1616,7 +1619,7 @@ GameObject:
   - component: {fileID: 5457153007811373536}
   m_Layer: 6
   m_Name: Vehicle Object
-  m_TagString: Kart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

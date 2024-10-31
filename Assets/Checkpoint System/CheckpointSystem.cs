@@ -16,7 +16,8 @@ public class CheckpointSystem : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsServer) return;
+        if (!IsServer || !RaceManager.Instance.IsGamePlaying()) return;
+
         UpdatePositionPlacementsRpc();
     }
 

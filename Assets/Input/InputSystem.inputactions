@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "d4a9e4e3-fc2d-4213-9d01-22ad187f321f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -167,7 +176,7 @@
                     "id": "d4af15d2-c8d4-4db3-bc26-45d707cee9c0",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=0.1,y=0.1)",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,
@@ -225,6 +234,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "098b7ddd-e32e-4d94-a1d1-be652dd3e1c5",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ddc2ec5-83f6-4fbd-800d-e2192eea43dc",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

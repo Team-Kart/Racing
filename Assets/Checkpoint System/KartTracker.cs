@@ -31,8 +31,14 @@ public class KartTracker : NetworkBehaviour
             data.nextCheckpoint = data.tracker.checkpoints[data.nextCheckpointIndex.Value];
             data.prevCheckpoint = data.tracker.checkpoints[data.prevCheckpointIndex.Value];
 
+            RaceManager.Instance.AddPlayer(this);
             data.tracker.AddKart(this);
         }
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        data.tracker.RemoveKart(this);
     }
 
     private void FixedUpdate()
@@ -44,6 +50,8 @@ public class KartTracker : NetworkBehaviour
     [Rpc(SendTo.Server)]
     public void CalculateCheckpointRpc(Vector3 position)
     {
+        if (!RaceManager.Instance.IsGamePlaying()) return;
+
         Vector3 nextdiff = (position - data.nextCheckpoint.position).normalized;
         Vector3 prevdiff = (position - data.prevCheckpoint.position).normalized;
         if (Vector3.Dot(nextdiff, data.nextCheckpoint.forward) > 0 && Vector3.Distance(position, data.nextCheckpoint.position) < data.nextCheckpoint.localScale.x / 2f)
@@ -66,7 +74,6 @@ public class KartTracker : NetworkBehaviour
     {
         PositionValue.Value = ((data.lap.Value + 1) * 100) + ((data.prevCheckpointIndex.Value + 1) * 10) - Vector3.Distance(player, checkpoint);
     }
-
 
     public void SetPosition(int index)
     {
@@ -143,6 +150,7 @@ public class KartTracker : NetworkBehaviour
         //Debug.Log("lap change");
         OnLapChange.Invoke(curr);
     }
+
     [Rpc(SendTo.Owner)]
     void UpdatePositionClientRpc(int curr)
     {

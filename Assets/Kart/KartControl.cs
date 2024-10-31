@@ -14,6 +14,7 @@ public class KartControl : NetworkBehaviour
     [SerializeField] float speed = 50;
     [SerializeField] float turnSpeed = 1;
     [SerializeField] float lerpSpeed = .1f;
+    [SerializeField] float rotLerpSpeed = .1f;
 
     [SerializeField] CinemachineFreeLook vcam;
     [SerializeField] AudioListener listener;
@@ -38,12 +39,12 @@ public class KartControl : NetworkBehaviour
         }
         else
         {
-            vcam.Priority = 0;
+            vcam.Priority = 0; 
         }
     }
     private void FixedUpdate()
     {
-        if (!IsOwner) return;
+        if (!IsOwner || !RaceManager.Instance.IsGamePlaying()) return;
 
         //HandleMovementRpc(moveInput, turnInput);
 
@@ -71,9 +72,8 @@ public class KartControl : NetworkBehaviour
         Vector3 newRot = vehicle.rotation.eulerAngles;
 
         //vertical movement
-        RaycastHit hit;
 
-        if (Physics.Raycast(vehicle.position, Vector3.down, out hit, transform.localScale.y / 2 + .1f))
+        if (Physics.Raycast(vehicle.position, Vector3.down, out RaycastHit hit, transform.localScale.y / 2 + .1f))
         {
             grounded = true;
             newRot = (Quaternion.FromToRotation(vehicle.up, hit.normal) * vehicle.rotation).eulerAngles;
@@ -86,7 +86,7 @@ public class KartControl : NetworkBehaviour
         //horizontal movement
         newRot.y += turn * turnSpeed;
 
-        vehicle.rotation = Quaternion.Lerp(vehicle.rotation, Quaternion.Euler(newRot), lerpSpeed * .5f);
+        vehicle.rotation = Quaternion.Lerp(vehicle.rotation, Quaternion.Euler(newRot), rotLerpSpeed);
     }
 
 
@@ -110,5 +110,10 @@ public class KartControl : NetworkBehaviour
         }
 
         turnInput = ctx.ReadValue<float>();
+    }
+
+    public void OnStartGame(InputAction.CallbackContext ctx)
+    {
+        RaceManager.Instance.HostStartGame();
     }
 }

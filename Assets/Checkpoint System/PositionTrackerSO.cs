@@ -30,4 +30,8 @@ public class PositionTrackerSO : ScriptableObject
         Debug.Log("Added");
         karts.Add(kart);
     }
+    public void RemoveKart(KartTracker kart)
+    {
+        karts.Remove(kart);
+    }
 }

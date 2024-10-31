@@ -71,6 +71,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4a9e4e3-fc2d-4213-9d01-22ad187f321f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -189,7 +198,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""id"": ""d4af15d2-c8d4-4db3-bc26-45d707cee9c0"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -249,6 +258,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""098b7ddd-e32e-4d94-a1d1-be652dd3e1c5"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ddc2ec5-83f6-4fbd-800d-e2192eea43dc"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +293,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_ResetCamera = m_Player.FindAction("ResetCamera", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
+        m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -328,6 +360,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_ResetCamera;
     private readonly InputAction m_Player_UseItem;
+    private readonly InputAction m_Player_Start;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -337,6 +370,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @ResetCamera => m_Wrapper.m_Player_ResetCamera;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
+        public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -361,6 +395,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @UseItem.started += instance.OnUseItem;
             @UseItem.performed += instance.OnUseItem;
             @UseItem.canceled += instance.OnUseItem;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -380,6 +417,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @UseItem.started -= instance.OnUseItem;
             @UseItem.performed -= instance.OnUseItem;
             @UseItem.canceled -= instance.OnUseItem;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -404,5 +444,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnResetCamera(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }
