@@ -10,45 +10,54 @@ public class ItemBox : NetworkBehaviour
         Banana, Shell, Mushroom, Coin
     }
 
-    // Item list //i suggest putting this in the director
-    List<ItemType> items = new List<ItemType> { ItemType.Banana, ItemType.Shell, ItemType.Mushroom, ItemType.Coin };
+    // Item list
+    List<ItemType> items = new List<ItemType> { ItemType.Banana, ItemType.Shell, ItemType.Mushroom, ItemType.Coin }; /*move to director script*/
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // Award item when item box is hit
+    // Set item when item box is hit
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ItemManager>() != null)
+        if (!IsServer) return;
+        KartData data = other.GetComponent<KartData>();
+        if (data == null)
         {
-            // Get random item
+            //Debug.Log("Data is null");
+        }
+        ItemManager manager = other.GetComponent<ItemManager>();
+        if (manager != null)
+        {
+            //Debug.Log("Position: " + data.racePosition.Value);
+            ItemType item = GetItem(data.racePosition.Value);
 
-            //make a call to the Director Script to get assigned item for that player
 
-            //other.GetComponent<ItemManager>().AddHeldItem(director given item);
+            //Debug.Log(item + " acquired!");
 
-            ItemType randomItem = GetItem();
-
-            Debug.Log(randomItem + " acquired!");
+            manager.SetItem(item);
 
             Destroy(gameObject);
         }
     }
 
-    private ItemType GetItem()
+    // Get item from box
+    private ItemType GetItem(int position)
     {
-        int random = Random.Range(0, items.Count);
-        return items[random];
+        //return items[random];*/
+        switch (position)
+        {
+            case 0:
+                return ItemType.Coin;
+            case 1:
+                return ItemType.Banana;
+            case 2:
+                return ItemType.Shell;
+            case 3:
+                return ItemType.Mushroom;
+            default:
+                return items[Random.Range(0, items.Count)];
+
+
+        }
     }
 
 }
+
+
