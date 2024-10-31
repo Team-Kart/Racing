@@ -10,7 +10,13 @@ public class KartTracker : NetworkBehaviour
 
 
     KartData data;
-    
+
+    // Getter for kart data
+    public KartData getData()
+    {
+        return data;
+    }
+
     public override void OnNetworkSpawn()
     {
         data = GetComponent<KartData>();
@@ -92,7 +98,7 @@ public class KartTracker : NetworkBehaviour
             data.prevCheckpointIndex.Value = 0;
             IncreaseLap();
         }
-        
+
         data.nextCheckpoint = data.tracker.checkpoints[data.nextCheckpointIndex.Value];
         data.prevCheckpoint = data.tracker.checkpoints[data.prevCheckpointIndex.Value];
     }
@@ -105,7 +111,7 @@ public class KartTracker : NetworkBehaviour
         {
             data.nextCheckpointIndex.Value = data.tracker.checkpoints.Count - 1;
         }
-        
+
         data.prevCheckpointIndex.Value--;
         if (data.prevCheckpointIndex.Value < 0)
         {
