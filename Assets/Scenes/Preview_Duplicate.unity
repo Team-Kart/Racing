@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -478,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1319459721
+      value: 28366885
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -834,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1848983443
+  GlobalObjectIdHash: 618774766
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -937,6 +941,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877799362168378733, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1453,6 +1461,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877799362168378733, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2025,6 +2037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2087,6 +2103,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2147,6 +2167,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877799362168378733, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2319,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 762707376
+      value: 3877054561
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -2384,7 +2408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 4184556562
+      value: 2284834127
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -2985,7 +3009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3723537501
+      value: 1903994343
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -3167,6 +3191,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877799362168378733, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3575,6 +3603,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6641994401495288183, guid: 8aa3ba5baac594e45b3534bfdb115873, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3954,7 +3986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2629156838
+      value: 2530963643
       objectReference: {fileID: 0}
     - target: {fileID: 8916451928548694220, guid: f6315567a9d1d4a4681c6347b15ed562, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
