@@ -11,12 +11,6 @@ public class KartTracker : NetworkBehaviour
 
     KartData data;
 
-    // Getter for kart data
-    public KartData getData()
-    {
-        return data;
-    }
-
     public override void OnNetworkSpawn()
     {
         data = GetComponent<KartData>();

@@ -17,16 +17,19 @@ public class ItemBox : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!IsServer) return;
-        KartData data = other.GetComponentInParent<KartData>();
+        KartData data = other.GetComponent<KartData>();
         if (data == null)
         {
-            Debug.Log("Data is null");
+            //Debug.Log("Data is null");
         }
         ItemManager manager = other.GetComponent<ItemManager>();
         if (manager != null)
         {
+            //Debug.Log("Position: " + data.racePosition.Value);
             ItemType item = GetItem(data.racePosition.Value);
-            Debug.Log(item + " acquired!");
+
+
+            //Debug.Log(item + " acquired!");
 
             manager.SetItem(item);
 
@@ -40,13 +43,13 @@ public class ItemBox : NetworkBehaviour
         //return items[random];*/
         switch (position)
         {
-            case 1:
+            case 0:
                 return ItemType.Coin;
-            case 2:
+            case 1:
                 return ItemType.Banana;
-            case 3:
+            case 2:
                 return ItemType.Shell;
-            case 4:
+            case 3:
                 return ItemType.Mushroom;
             default:
                 return items[Random.Range(0, items.Count)];

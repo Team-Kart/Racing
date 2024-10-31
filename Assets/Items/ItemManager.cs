@@ -15,6 +15,7 @@ public class ItemManager : NetworkBehaviour
     ItemBox.ItemType itemHeld;
     bool hasItem = false;
 
+
     // Set item acquired
     public void SetItem(ItemBox.ItemType item)
     {
@@ -29,7 +30,8 @@ public class ItemManager : NetworkBehaviour
         if (ctx.performed && IsOwner && hasItem)
         {
             hasItem = false;
-            SpawnItem(itemHeld);
+            //SpawnItem(itemHeld);
+            ItemEffect(itemHeld);
             Debug.Log("Used item" + itemHeld);
 
         }
@@ -40,8 +42,8 @@ public class ItemManager : NetworkBehaviour
 
     }
 
-    // Spawn item prefab
-    void SpawnItem(ItemBox.ItemType itemHeld)
+    // Item effects
+    void ItemEffect(ItemBox.ItemType itemHeld)
     {
         GameObject itemPrefab = null;
 
@@ -66,4 +68,5 @@ public class ItemManager : NetworkBehaviour
             Debug.Log("Spawned Item: " + itemHeld);
         }
     }
+
 }

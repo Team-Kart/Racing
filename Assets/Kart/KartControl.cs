@@ -1,12 +1,7 @@
 using Cinemachine;
-using System;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Composites;
-using UnityEngine.InputSystem.HID;
 
 public class KartControl : NetworkBehaviour
 {
@@ -25,7 +20,6 @@ public class KartControl : NetworkBehaviour
     //Vector2 moveInput;
     float moveInput;
     float turnInput;
-
 
     public override void OnNetworkSpawn()
     {
@@ -73,7 +67,7 @@ public class KartControl : NetworkBehaviour
         //vertical movement
         RaycastHit hit;
 
-        if (Physics.Raycast(vehicle.position, Vector3.down, out hit, transform.localScale.y / 2 + .1f))
+        if (Physics.Raycast(vehicle.position, Vector3.down, out hit, (transform.localScale.y / 2) + .1f))
         {
             grounded = true;
             newRot = (Quaternion.FromToRotation(vehicle.up, hit.normal) * vehicle.rotation).eulerAngles;
